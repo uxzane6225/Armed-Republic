@@ -4,17 +4,21 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
-
         <title>{{ config('app.name', 'Laravel') }}</title>
-
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
-
-        <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-sans text-gray-900 antialiased">
+    <body class="h-screen">
+        <main class="h-screen flex flex-row">
+            <div class="h-screen w-6/12 flex flex-col justify-evenly items-center bg-white">
+                {{ $slot }}
+            </div>
+            <div class="h-screen w-full flex flex-col justify-center items-center text-center text-white bg-[url(../../../../storage/app/public/images/bg1.jpg)] bg-no-repeat bg-cover bg-center">
+                <h1 class="text-4xl font-bold border-b-4">Armed Republic</h1>
+                <p>The right to protect and defend!</p>
+            </div> 
+        </main>
+    </body>
+    {{-- <body class="font-sans text-gray-900 antialiased">
         <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
             <div>
                 <a href="/">
@@ -26,5 +30,5 @@
                 {{ $slot }}
             </div>
         </div>
-    </body>
+    </body> --}}
 </html>
