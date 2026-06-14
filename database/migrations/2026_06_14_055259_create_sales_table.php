@@ -13,8 +13,18 @@ return new class extends Migration
     {
         Schema::create('sales', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('customer_id')->constrained('users')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('employee_id')->constrained('users')->onUpdate('cascade')->onDelete('cascade');
+            $table->decimal('total_cost',0,2);
             $table->timestamps();
         });
+
+        // Schema::create('sale_details', function (Blueprint $table) {
+        //     $table->id();
+        //     $table->foreignId('product_id')->constrained('products')->onUpdate('cascade')->onDelete('cascade');
+        //     $table->foreignId('sales_id')->constrained('sales)->onUpdate('cascade')->onDelete('cascade');
+        //     $table->integer('quantity');
+        // });
     }
 
     /**
