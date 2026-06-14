@@ -47,10 +47,12 @@
 
         <div class="flex flex-col justify-center items-center mt-20">
 
-            <x-primary-button class="ms-3">
+            <x-primary-button class="">
                 {{ __('Log in') }}
             </x-primary-button>
-            <a href="{{ route('register') }}" class=" underline text-center transition duration-400 hover:text-gray-800">No account? Register! </a>
+            <a href="{{ route('register') }}" class="underline text-sm text-center text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                {{ __('No account? Register!') }}
+            </a>
         </div>
     </form>
 </x-guest-layout>
