@@ -15,20 +15,68 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100">
-            @include('layouts.navigation')
+        <div class="min-h-screen grid grid-cols-5 bg-gray-100">
+            {{-- @include('layouts.navigation') --}}
 
             <!-- Page Heading -->
-            @isset($header)
+            {{-- @isset($header)
                 <header class="bg-white shadow">
                     <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
                         {{ $header }}
                     </div>
                 </header>
-            @endisset
+            @endisset --}}
+            <nav class="p-5 w-full flex flex-col justify-between gap-5 text-white bg-black">
+                <div>
+                    <div class="p-2 border border-2 border-t-black border-l-black border-r-black border-b-white">
+                    <h1 class="text-3xl font-bold">Control Panel</h1>
+                </div>
+                <div class="py-5 flex flex-col">
+                    <h2 class="text-sm">Menu</h2>
+                        <div class="py-2 flex flex-col gap-2 border border-t-white border-l-black border-r-black border-b-black">
+                            <a href="{{ route('dashboard') }}" class="px-2 hover:text-yellow-300 transition duration-300 border border-2 border-t-black border-l-white border-r-black border-b-black">
+                                Dashboard
+                            </a>
+                            <a href="{{ route('dashboard') }}" class="px-2 hover:text-yellow-300 transition duration-300 border border-2 border-t-black border-l-white border-r-black border-b-black">
+                                User
+                            </a>
+                            <a href="{{ route('dashboard') }}" class="px-2 hover:text-yellow-300 transition duration-300 border border-2 border-t-black border-l-white border-r-black border-b-black">
+                                Inventory
+                            </a>
+                            <a href="{{ route('dashboard') }}" class="px-2 hover:text-yellow-300 transition duration-300 border border-2 border-t-black border-l-white border-r-black border-b-black">
+                                Sales
+                            </a>
+                            <a href="{{ route('dashboard') }}" class="px-2 hover:text-yellow-300 transition duration-300 border border-2 border-t-black border-l-white border-r-black border-b-black">
+                                Mail / Report
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="p-2  flex flex-col gap-2 border border-2 border-t-white border-l-black border-r-black border-b-white">
+                    <div class="p-2 flex items-center justify-center gap-5">
+                        <img src="#" alt="Profile Picture" class="w-20 h-20 bg-gray-200 rounded-full">
+                        <div>
+                            <a class="text-2xl font-bold">Username</a>
+                            <p>email@email.com</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-2 text-center">
+                        <a href="{{ route('dashboard') }}" class="px-2 text-lg hover:text-yellow-300 transition duration-300">
+                            Main Site
+                        </a>
+                        <a href="{{ route('dashboard') }}" class="px-2 text-lg hover:text-yellow-300 transition duration-300">
+                            Settings
+                        </a>
+                        <a href="{{ route('dashboard') }}" class="px-2 text-lg hover:text-yellow-300 transition duration-300">
+                            Logout
+                        </a>
+                    </div>
+                </div>
+            </nav>
 
             <!-- Page Content -->
-            <main>
+            <main class="col-span-4">
                 {{ $slot }}
             </main>
         </div>
