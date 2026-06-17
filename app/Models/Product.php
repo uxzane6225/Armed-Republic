@@ -12,4 +12,12 @@ class Product extends Model
         "category_id",
         "employee_id"
     ];
+
+    public function categories() {
+        return $this->belongsTo(Category::class);
+    }
+
+    public function types() {
+        return $this->belongsTo(Type::class);
+    }
 }

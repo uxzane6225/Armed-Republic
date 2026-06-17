@@ -12,7 +12,9 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        $categories = Category::all();
+
+        return view('categories.index', compact('categories'));
     }
 
     /**
@@ -20,7 +22,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('categories.create');
     }
 
     /**
@@ -28,7 +30,15 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->valdiate([
+            'category' => ['required', 'unique']
+        ]);
+
+        Category::create([
+            "category" => $request->category
+        ]);
+
+        return redirect()->route('categories.index')->with('success', 'Category Added Successfully!');
     }
 
     /**
@@ -44,7 +54,7 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        return view('categories.edit', compact('categories'));
     }
 
     /**
@@ -52,7 +62,15 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+        $request->validate([
+            'category' => ['required','unique']
+        ]);
+
+        $category->update([
+            'category' => $request->category
+        ]);
+
+        return redirect()->route('categories.index')->with('success', 'Category Updated Successfully!');
     }
 
     /**
@@ -60,6 +78,10 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        if (auth()->user()->role !== 'admin') {
+            return redirect()->back()->with('error', 'You are not allowed to delete a user!');
+        }
+        $category->delete();
+        return redirect()->route('categories.index')->with('success', 'Caetegory deleted successfully');
     }
 }

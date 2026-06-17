@@ -11,14 +11,26 @@ return new class extends Migration
      */
     public function up(): void
     {
+        Schema::create('categories', function (Blueprint $table) {
+            $table->id();
+            $table->string('category')->unique();
+            $table->timestamps();
+        });
+
+        Schema::create('types', function (Blueprint $table) {
+            $table->id();
+            $table->string('type')->unique();
+            $table->timestamps();
+        });
+
         Schema::create('products', function (Blueprint $table) {
             $table->id()->primary();
-            $table->string('name');
+            $table->string('name')->unique();
             $table->decimal('price',7,2);
             $table->integer('stock');
             $table->foreignId('type_id')->constrained('types')->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('category_id')->constrained('categories')->onUpdate('cascade')->onDelete('cascade');
-            $table->foreignId('employee_id')->constrained('employees')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('employee_id')->constrained('users')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }

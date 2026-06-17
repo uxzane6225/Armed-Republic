@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Type;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class TypeController extends Controller
@@ -12,7 +13,7 @@ class TypeController extends Controller
      */
     public function index()
     {
-        //
+        return view('types.index', compact('types'));
     }
 
     /**
@@ -20,7 +21,7 @@ class TypeController extends Controller
      */
     public function create()
     {
-        //
+        return view('types.create');
     }
 
     /**
@@ -28,7 +29,15 @@ class TypeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'types' => $request->type
+        ]);
+
+        User::create([
+            'types' => $request->type
+        ]);
+
+        return redirect()->route('types.index')->with('success', 'Type Added Successfully');
     }
 
     /**
@@ -44,7 +53,7 @@ class TypeController extends Controller
      */
     public function edit(Type $type)
     {
-        //
+        return view('types.edit', compact('types'));
     }
 
     /**
@@ -52,7 +61,15 @@ class TypeController extends Controller
      */
     public function update(Request $request, Type $type)
     {
-        //
+        $request->validate([
+            'type' => ['required', 'unique']
+        ]);
+
+        $type->update([
+            'type' => $request->type
+        ]);
+
+        return redirect()->route('types.index')->with('success', 'Type Updated Successfully!');
     }
 
     /**
@@ -60,6 +77,10 @@ class TypeController extends Controller
      */
     public function destroy(Type $type)
     {
-        //
+        if (auth()->user()->role !== 'admin') {
+            return redirect()->back()->with('error', 'You are not allowed to delete a user!');
+        }
+        $type->delete();
+        return redirect()->route('types.index')->with('success', 'Caetegory deleted successfully');
     }
 }

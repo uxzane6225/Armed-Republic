@@ -12,15 +12,15 @@
                 <a href="{{ route('users.index') }}" class="p-2 hover:text-yellow-300 transition duration-300 border border-2 border-t-black border-l-white border-r-black border-b-black hover:bg-gray-900">
                     User
                 </a>
-                <a href="{{ route('dashboard') }}" class="p-2 hover:text-yellow-300 transition duration-300 border border-2 border-t-black border-l-white border-r-black border-b-black hover:bg-gray-900">
+                <a href="{{ route('products.index') }}" class="p-2 hover:text-yellow-300 transition duration-300 border border-2 border-t-black border-l-white border-r-black border-b-black hover:bg-gray-900">
                     Inventory
                 </a>
                 <a href="{{ route('dashboard') }}" class="p-2 hover:text-yellow-300 transition duration-300 border border-2 border-t-black border-l-white border-r-black border-b-black hover:bg-gray-900">
                     Sales
                 </a>
-                <a href="{{ route('dashboard') }}" class="p-2 hover:text-yellow-300 transition duration-300 border border-2 border-t-black border-l-white border-r-black border-b-black hover:bg-gray-900">
+                {{-- <a href="{{ route('dashboard') }}" class="p-2 hover:text-yellow-300 transition duration-300 border border-2 border-t-black border-l-white border-r-black border-b-black hover:bg-gray-900">
                     Mail / Report
-                </a>
+                </a> --}}
             </div>
         </div>
     </div>
