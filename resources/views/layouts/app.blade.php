@@ -78,9 +78,15 @@
                 <!-- Page Heading -->
                 @isset($header)
                     <header class="bg-white shadow">
-                        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                        <div class="flex items-center gap-5 py-4 px-2 sm:px-4 lg:px-2">
                             {{ $header }}
+                            @if(session('success'))
+                            <p class="p-1 w-fit h-fit text-green-600 bg-green-300 rounded-lg">{{ session('success') }}</p>
+                        @endif
                         </div>
+                        {{-- @if(session('success'))
+                            <p class="p-1 w-fit h-fit text-green-600 bg-green-300 rounded-lg">{{ session('success') }}</p>
+                        @endif --}}
                     </header>
                 @endisset
                 <main class="h-full">

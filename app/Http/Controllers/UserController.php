@@ -30,27 +30,27 @@ class UserController extends Controller
      */
     public function store(Request $request, User $user)
     {
-        $request->validate([
-            'fullname' => 'required',
-            'email' => 'required',
-            'password'=> 'required',
-            'phone'=> 'required',
-            'address'=> 'required',
-            'birthdate' => 'required',
-        ]);
+        // $request->validate([
+        //     'name' => 'required',
+        //     'email' => 'required',
+        //     // 'password'=> 'required',
+        //     // 'phone'=> 'required',
+        //     // 'address'=> 'required',
+        //     // 'birthdate' => 'required',
+        // ]);
 
-        $user->update([
-            'fullname' => $request->fullname,
-            'email' => $request->email,
-            'password' => $request->password,
-            'phone' => $request->phone,
-            'address' => $request->address,
-            'gender' => $request->gender,
-            'birthdate' => $request->birthdate,
-            'role' => $request->role,
-        ]);
+        // $user->create([
+        //     'name' => $request->name,
+        //     'email' => $request->email,
+        //     // 'password' => $request->password,
+        //     // 'phone' => $request->phone,
+        //     // 'address' => $request->address,
+        //     // 'gender' => $request->gender,
+        //     // 'birthdate' => $request->birthdate,
+        //     'role' => $request->role,
+        // ]);
 
-        return redirect('/users')->with('success', 'User Created Successfully');
+        // return redirect()->route('users.create')->with('success', 'User Created Successfully');
     }
 
     /**
@@ -75,22 +75,22 @@ class UserController extends Controller
     public function update(Request $request, User $user)
     {
         $request->validate([
-            'fullname' => 'required',
+            'name' => 'required',
             'email' => 'required',
-            'password'=> 'required',
-            'phone'=> 'required',
-            'address'=> 'required',
-            'birthdate' => 'required',
+            // 'password'=> 'required',
+            // 'phone'=> 'required',
+            // 'address'=> 'required',
+            // 'birthdate' => 'required',
         ]);
 
         $user->update([
-            'fullname' => $request->fullname,
+            'name' => $request->name,
             'email' => $request->email,
-            'password' => $request->password,
-            'phone' => $request->phone,
-            'address' => $request->address,
-            'gender' => $request->gender,
-            'birthdate' => $request->birthdate,
+            // 'password' => $request->password,
+            // 'phone' => $request->phone,
+            // 'address' => $request->address,
+            // 'gender' => $request->gender,
+            // 'birthdate' => $request->birthdate,
             'role' => $request->role,
         ]);
 

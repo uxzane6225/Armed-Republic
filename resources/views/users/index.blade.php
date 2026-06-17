@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-3xl text-gray-800 leading-tight">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Users') }}
         </h2>
     </x-slot>
@@ -43,8 +43,8 @@
             </table>
         </div>
         
-        <a href="{{ route('users.create') }}" class="p-2 w-fit self-end text-white bg-black hover:bg-gray-800 rounded-lg transition duration-300">
+        {{-- <a href="{{ route('users.create') }}" class="p-2 w-fit self-end text-white bg-black hover:bg-gray-800 rounded-lg transition duration-300">
             Create User
-        </a>
+        </a> --}}
     </div>
 </x-app-layout>
