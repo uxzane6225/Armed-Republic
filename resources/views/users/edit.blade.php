@@ -6,14 +6,13 @@
     </x-slot>
     <div class="p-5 w-full h-full flex justify-center text-lg">
         <form action="{{ route('users.update', $user->id) }}" method="POST" class="p-10 h-fit flex flex-col gap-2 bg-white rounded-xl shadow-xl">
-             @csrf
+            @csrf
             @method('PUT')
             <div class="flex flex-col gap-2">
                 <input type="text" name="name" class="p-1" value="{{ $user->name }}" aria-label="Full Name" placeholder="Full Name">
                 <input type="text" name="email" class="p-1" value="{{ $user->email }}" aria-label="Email" placeholder="Email">
-                <select name="">
+                <select name="role">
                     <option value="admin">Admin</option>
-                    <option value="employee">Employee</option>
                     <option value="user">User</option>
                 </select>
             </div>

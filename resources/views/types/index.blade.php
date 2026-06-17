@@ -11,6 +11,7 @@
                     <tr>
                         <th class="p-2">ID</th>
                         <th class="p-2">Type</th>
+                        <th class="p-2">Action</th>
                     </tr>
                 </thead>
                 <tbody class="text-center">
@@ -19,8 +20,8 @@
                             <td class="p-2">{{ $type->id }}</td>
                             <td class="p-2">{{ $type->type }}</td>
                             <td class="p-2 flex justify-center gap-2">
-                                <a href="{{ route('products.edit', $type->id) }}" class="p-1 text-white bg-blue-600 rounded-lg transition duration-300 hover:bg-blue-500">Edit</a>
-                                <form action="{{ route('products.destroy', $type->id) }}" method="POST">
+                                <a href="{{ route('types.edit', $type->id) }}" class="p-1 text-white bg-blue-600 rounded-lg transition duration-300 hover:bg-blue-500">Edit</a>
+                                <form action="{{ route('types.destroy', $type->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <button class="p-1 text-white bg-red-600 rounded-lg transition duration-300 hover:bg-red-500">Delete</button>
@@ -32,8 +33,8 @@
             </table>
         </div>
         <div class="w-full flex justify-end gap-2">
-            <a href="{{ route('users.create') }}" class="p-2 w-fit self-end text-white bg-black hover:bg-gray-800 rounded-lg transition duration-300">Add Product</a>
-            <a href="{{ route('types.index') }}" class="p-2 w-fit self-end text-white bg-black hover:bg-gray-800 rounded-lg transition duration-300">Type</a>
+            <a href="{{ route('types.create') }}" class="p-2 w-fit self-end text-white bg-black hover:bg-gray-800 rounded-lg transition duration-300">Add Type</a>
+            <a href="{{ route('products.index') }}" class="p-2 w-fit self-end text-white bg-black hover:bg-gray-800 rounded-lg transition duration-300">Products</a>
             <a href="{{ route('categories.index') }}" class="p-2 w-fit self-end text-white bg-black hover:bg-gray-800 rounded-lg transition duration-300">Category</a>
         </div>
     </div>

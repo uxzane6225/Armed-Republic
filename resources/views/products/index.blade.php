@@ -32,7 +32,7 @@
                             <td class="p-2">{{ $product->price }}</td>
                             <td class="p-2">{{ $product->created_at }}</td>
                             <td class="p-2">{{ $product->updated_at }}</td>
-                            <td class="p-2">{{ $product->user->id }}</td>
+                            <td class="p-2">{{ $product->user->name }}</td>
                             <td class="p-2 flex justify-center gap-2">
                                 <a href="{{ route('products.edit', $product->id) }}" class="p-1 text-white bg-blue-600 rounded-lg transition duration-300 hover:bg-blue-500">Edit</a>
                                 <form action="{{ route('products.destroy', $product->id) }}" method="POST">
@@ -47,7 +47,7 @@
             </table>
         </div>
         <div class="w-full flex justify-end gap-2">
-            <a href="{{ route('users.create') }}" class="p-2 w-fit self-end text-white bg-black hover:bg-gray-800 rounded-lg transition duration-300">Add Product</a>
+            <a href="{{ route('products.create') }}" class="p-2 w-fit self-end text-white bg-black hover:bg-gray-800 rounded-lg transition duration-300">Add Product</a>
             <a href="{{ route('types.index') }}" class="p-2 w-fit self-end text-white bg-black hover:bg-gray-800 rounded-lg transition duration-300">Type</a>
             <a href="{{ route('categories.index') }}" class="p-2 w-fit self-end text-white bg-black hover:bg-gray-800 rounded-lg transition duration-300">Category</a>
         </div>

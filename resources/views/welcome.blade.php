@@ -20,7 +20,7 @@
                     <a href="{{ route('register') }}" class="py-2 w-100 border-2 border-black rounded-xl transition duration-400 hover:bg-black hover:text-white">Register</a>
                 </div>
             </div>
-            <div class="h-screen w-full flex-col justify-center items-center text-center text-white bg-[url(../../../../storage/app/public/images/bg2.jpg)] bg-no-repeat bg-cover bg-bottom hidden lg:flex">
+            <div class="h-screen w-full flex-col justify-center items-center text-center text-white bg-black bg-[url(../../../../storage/app/public/images/bg2.jpg)] bg-no-repeat bg-cover bg-bottom hidden lg:flex">
                 <h1 class="text-5xl text-shadow-lg/20 font-bold border-white border-b-4">Armed Republic</h1>
                 <p class="text-lg text-shadow-lg/20">The right to protect and defend!</p>
             </div> 

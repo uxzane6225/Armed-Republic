@@ -13,6 +13,8 @@ class TypeController extends Controller
      */
     public function index()
     {
+        $types = Type::all();
+
         return view('types.index', compact('types'));
     }
 
@@ -30,11 +32,11 @@ class TypeController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'types' => $request->type
+            'type' => ['required','unique:types']
         ]);
 
-        User::create([
-            'types' => $request->type
+        Type::create([
+            'type' => $request->type
         ]);
 
         return redirect()->route('types.index')->with('success', 'Type Added Successfully');
@@ -53,7 +55,7 @@ class TypeController extends Controller
      */
     public function edit(Type $type)
     {
-        return view('types.edit', compact('types'));
+        return view('types.edit', compact('type'));
     }
 
     /**
@@ -62,7 +64,7 @@ class TypeController extends Controller
     public function update(Request $request, Type $type)
     {
         $request->validate([
-            'type' => ['required', 'unique']
+            'type' => ['required', 'unique:types']
         ]);
 
         $type->update([
@@ -81,6 +83,6 @@ class TypeController extends Controller
             return redirect()->back()->with('error', 'You are not allowed to delete a user!');
         }
         $type->delete();
-        return redirect()->route('types.index')->with('success', 'Caetegory deleted successfully');
+        return redirect()->route('types.index')->with('success', 'Type deleted successfully');
     }
 }

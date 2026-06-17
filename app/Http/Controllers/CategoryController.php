@@ -12,7 +12,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::all();
+        $categories = Category::latest()->paginate(10);
 
         return view('categories.index', compact('categories'));
     }
@@ -30,8 +30,8 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $request->valdiate([
-            'category' => ['required', 'unique']
+        $request->validate([
+            'category' => ['required', 'unique:categories']
         ]);
 
         Category::create([
@@ -54,7 +54,7 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        return view('categories.edit', compact('categories'));
+        return view('categories.edit', compact('category'));
     }
 
     /**
@@ -63,7 +63,7 @@ class CategoryController extends Controller
     public function update(Request $request, Category $category)
     {
         $request->validate([
-            'category' => ['required','unique']
+            'category' => ['required','unique:categories']
         ]);
 
         $category->update([

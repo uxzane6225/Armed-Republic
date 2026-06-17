@@ -10,9 +10,8 @@
                 <input type="text" name="name" class="p-1" aria-label="Full Name" placeholder="Full Name">
                 <input type="text" name="email" class="p-1" aria-label="Email" placeholder="Email">
                 <input type="password" name="password" class="p-1" aria-label="Password" placeholder="Password">
-                <select name="">
+                <select name="role">
                     <option value="admin">Admin</option>
-                    <option value="employee">Employee</option>
                     <option value="user">User</option>
                 </select>
             </div>

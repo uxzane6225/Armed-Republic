@@ -14,7 +14,7 @@ class ProductController extends Controller
      */
     public function index()
     {   
-        $products = Product::with(['type','category'])->get();
+        $products = Product::with('type','category','user')->get();
 
         return view("products.index", compact('products'));
     }
@@ -24,10 +24,10 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $type = Type::all();
-        $category = Category::all();
+        $types = Type::all();
+        $categories = Category::all();
 
-        return view('products.create', compact(['type', 'category']));
+        return view('products.create', compact(['types', 'categories']));
     }
 
     /**
@@ -36,7 +36,7 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => ['required','unique'],
+            'name' => ['required','unique:products'],
             'price' => 'required',
             'stock' => 'required',
             'type_id' => 'required',
@@ -69,7 +69,10 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        return view('products.edit', compact('products'));
+        $types = Type::all();
+        $categories = Category::all();
+
+        return view('products.edit', compact('product', ['types','categories']));
     }
 
     /**
@@ -78,7 +81,7 @@ class ProductController extends Controller
     public function update(Request $request, Product $product)
     {
         $request->validate([
-            'name' => ['required','unique'],
+            'name' => 'required',
             'price' => 'required',
             'stock' => 'required',
             'type_id' => 'required',
@@ -86,7 +89,7 @@ class ProductController extends Controller
             'employee_id' => 'required'
         ]);
 
-        $product::udpate([
+        $product->update([
             'name' => $request->name,
             'price' => $request->price,
             'stock' => $request->stock,

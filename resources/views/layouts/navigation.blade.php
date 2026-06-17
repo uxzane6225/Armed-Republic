@@ -25,15 +25,12 @@
         </div>
     </div>
     
-    <div class="p-2 flex flex-col gap-2 border border-2 border-t-white border-l-black border-r-black border-b-white">
-        <div class="p-2 flex items-center justify-center gap-5">
-            <img src="#" alt="Profile Picture" class="w-20 h-20 bg-gray-200 rounded-full">
-            <div>
-                <a class="text-2xl font-bold">Username</a>
-                <p>email@email.com</p>
-            </div>
+    <div class="p-2 flex flex-col items-center gap-2 border border-2 border-t-white border-l-black border-r-black border-b-white">
+        <div class="p-2 w-fit flex flex-col justify-center gap-1">
+            <a href="{{ route('profile.edit') }}" class="text-2xl font-bold">{{ auth()->user()->name }}</a>
+            <p>{{ auth()->user()->email }}</p>
         </div>
-        <div class="flex flex-col text-center">
+        <div class="flex w-full flex-col text-center">
             <a href="{{ route('dashboard') }}" class="p-2 text-lg hover:text-yellow-300 transition duration-300 hover:bg-gray-900">
                 Main Site
             </a>
