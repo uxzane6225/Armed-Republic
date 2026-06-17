@@ -17,40 +17,39 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('phone');
-            $table->string('address');
-            $table->enum('gender',['male','female']);
-            $table->date('birthdate');
-            $table->string('pfp_path');
+            //$table->string('phone');
+            //$table->string('address');
+            //$table->enum('gender',['male','female']);
+            //$table->date('birthdate');
             $table->enum('role', ['admin','employee','customer'])->default('employee');
-            $table->foreignId('admin_id')->constrained('users')->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreignId('admin_id')->constrained('users')->onUpdate('cascade')->onDelete('cascade');
             $table->rememberToken();
             $table->timestamps();
         });
 
-        Schema::create('accounts', function(Blueprint $table) {
-            $table->id();
-            $table->string('fullname');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('phone');
-            $table->string('address');
-            $table->string('password');
-            $table->enum('role', ['admin','employee','customer'])->default('employee');
-            $table->rememberToken();
-            $table->timestamps();
-        });
+        // Schema::create('accounts', function(Blueprint $table) {
+        //     $table->id();
+        //     $table->string('fullname');
+        //     $table->string('email')->unique();
+        //     $table->timestamp('email_verified_at')->nullable();
+        //     $table->string('phone');
+        //     $table->string('address');
+        //     $table->string('password');
+        //     $table->enum('role', ['admin','employee','customer'])->default('employee');
+        //     $table->rememberToken();
+        //     $table->timestamps();
+        // });
 
-        Schema::create('profile', function(Blueprint $table) {
-            $table->id();
-            $table->foreignId('account_id')->constrained('accounts')->onUpdate('cascade')->onDelete('cascade');
-            $table->string('username');
-            $table->string('description');
-            $table->enum('gender',['male','female']);
-            $table->date('birthdate');
-            $table->string('profile_picture_path');
-            $table->timestamps();
-        });
+        // Schema::create('profile', function(Blueprint $table) {
+        //     $table->id();
+        //     $table->foreignId('account_id')->constrained('accounts')->onUpdate('cascade')->onDelete('cascade');
+        //     $table->string('username');
+        //     $table->string('description');
+        //     $table->enum('gender',['male','female']);
+        //     $table->date('birthdate');
+        //     $table->string('profile_picture_path');
+        //     $table->timestamps();
+        // });
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {
             $table->string('email')->primary();

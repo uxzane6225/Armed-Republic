@@ -14,9 +14,9 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-sans antialiased">
-        <div class="min-h-screen grid grid-cols-5 bg-gray-100">
-            {{-- @include('layouts.navigation') --}}
+    <body class="h-screen font-sans antialiased">
+        <div class="h-full grid grid-cols-5 bg-gray-100">
+            @include('layouts.navigation')
 
             <!-- Page Heading -->
             {{-- @isset($header)
@@ -26,13 +26,13 @@
                     </div>
                 </header>
             @endisset --}}
-            <nav class="p-5 w-full flex flex-col justify-between gap-5 text-white bg-black">
+            {{-- <nav class="p-5 w-full flex flex-col justify-between gap-5 text-white bg-black">
                 <div>
                     <div class="p-2 border border-2 border-t-black border-l-black border-r-black border-b-white">
-                    <h1 class="text-3xl font-bold">Control Panel</h1>
-                </div>
-                <div class="py-5 flex flex-col">
-                    <h2 class="text-sm">Menu</h2>
+                        <h1 class="text-3xl text-center font-bold">Control Panel</h1>
+                    </div>
+                    <div class="py-5 flex flex-col">
+                        <h2 class="text-sm">Menu</h2>
                         <div class="py-2 flex flex-col gap-2 border border-t-white border-l-black border-r-black border-b-black">
                             <a href="{{ route('dashboard') }}" class="p-2 hover:text-yellow-300 transition duration-300 border border-2 border-t-black border-l-white border-r-black border-b-black hover:bg-gray-900">
                                 Dashboard
@@ -51,7 +51,7 @@
                             </a>
                         </div>
                     </div>
-                </div>
+                </div
                 
                 <div class="p-2 flex flex-col gap-2 border border-2 border-t-white border-l-black border-r-black border-b-white">
                     <div class="p-2 flex items-center justify-center gap-5">
@@ -73,8 +73,8 @@
                         </a>
                     </div>
                 </div>
-            </nav>
-            <div class="min-h-screen col-span-4">
+            </nav>> --}}
+            <div class="flex flex-col col-span-4">
                 <!-- Page Heading -->
                 @isset($header)
                     <header class="bg-white shadow">
@@ -83,7 +83,7 @@
                         </div>
                     </header>
                 @endisset
-                <main class="h-screen">
+                <main class="h-full">
                     {{ $slot }}
                 </main>
             </div>

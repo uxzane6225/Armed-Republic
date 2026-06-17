@@ -1,4 +1,57 @@
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
+<nav class="p-5 w-full flex flex-col justify-between gap-5 text-white bg-black">
+    <div>
+        <div class="p-2 border border-2 border-t-black border-l-black border-r-black border-b-white">
+            <h1 class="text-3xl text-center font-bold">Control Panel</h1>
+        </div>
+        <div class="py-5 flex flex-col">
+            <h2 class="text-sm">Menu</h2>
+            <div class="py-2 flex flex-col gap-2 border border-t-white border-l-black border-r-black border-b-black">
+                <a href="{{ route('dashboard') }}" class="p-2 hover:text-yellow-300 transition duration-300 border border-2 border-t-black border-l-white border-r-black border-b-black hover:bg-gray-900">
+                    Dashboard
+                </a>
+                <a href="{{ route('users.index') }}" class="p-2 hover:text-yellow-300 transition duration-300 border border-2 border-t-black border-l-white border-r-black border-b-black hover:bg-gray-900">
+                    User
+                </a>
+                <a href="{{ route('dashboard') }}" class="p-2 hover:text-yellow-300 transition duration-300 border border-2 border-t-black border-l-white border-r-black border-b-black hover:bg-gray-900">
+                    Inventory
+                </a>
+                <a href="{{ route('dashboard') }}" class="p-2 hover:text-yellow-300 transition duration-300 border border-2 border-t-black border-l-white border-r-black border-b-black hover:bg-gray-900">
+                    Sales
+                </a>
+                <a href="{{ route('dashboard') }}" class="p-2 hover:text-yellow-300 transition duration-300 border border-2 border-t-black border-l-white border-r-black border-b-black hover:bg-gray-900">
+                    Mail / Report
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="p-2 flex flex-col gap-2 border border-2 border-t-white border-l-black border-r-black border-b-white">
+        <div class="p-2 flex items-center justify-center gap-5">
+            <img src="#" alt="Profile Picture" class="w-20 h-20 bg-gray-200 rounded-full">
+            <div>
+                <a class="text-2xl font-bold">Username</a>
+                <p>email@email.com</p>
+            </div>
+        </div>
+        <div class="flex flex-col text-center">
+            <a href="{{ route('dashboard') }}" class="p-2 text-lg hover:text-yellow-300 transition duration-300 hover:bg-gray-900">
+                Main Site
+            </a>
+            <a href="{{ route('dashboard') }}" class="p-2 text-lg hover:text-yellow-300 transition duration-300 hover:bg-gray-900">
+                Settings
+            </a>
+            <form action="{{ route('logout') }}" method="POST" class="p-2 text-lg hover:text-yellow-300 transition duration-300 hover:bg-gray-900">
+                @csrf
+
+                <button type="submit" class="w-full">
+                    Logout
+                </button>
+            </form>
+        </div>
+    </div>
+</nav>
+
+{{-- <nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
@@ -100,4 +153,4 @@
             </div>
         </div>
     </div>
-</nav>
+</nav> --}}
