@@ -13,7 +13,7 @@ class TypeController extends Controller
      */
     public function index()
     {
-        $types = Type::all();
+        $types = Type::latest()->paginate(10);
 
         return view('types.index', compact('types'));
     }

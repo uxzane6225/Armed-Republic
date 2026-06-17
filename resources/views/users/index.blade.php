@@ -41,6 +41,11 @@
                     @endforeach
                 </tbody>
             </table>
+            @if($users->hasPages())
+                <div class="p-2 text-white bg-black">
+                    {{ $users->links() }}
+                </div>
+            @endif
         </div>
         
         {{-- <a href="{{ route('users.create') }}" class="p-2 w-fit self-end text-white bg-black hover:bg-gray-800 rounded-lg transition duration-300">

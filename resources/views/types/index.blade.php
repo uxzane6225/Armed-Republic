@@ -31,6 +31,11 @@
                     @endforeach
                 </tbody>
             </table>
+            @if($types->hasPages())
+                <div class="p-2 text-white bg-black">
+                    {{ $types->links() }}
+                </div>
+            @endif
         </div>
         <div class="w-full flex justify-end gap-2">
             <a href="{{ route('types.create') }}" class="p-2 w-fit self-end text-white bg-black hover:bg-gray-800 rounded-lg transition duration-300">Add Type</a>

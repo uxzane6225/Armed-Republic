@@ -45,6 +45,11 @@
                     @endforeach
                 </tbody>
             </table>
+            @if($products->hasPages())
+                <div class="p-2 text-white bg-black">
+                    {{ $products->links() }}
+                </div>
+            @endif
         </div>
         <div class="w-full flex justify-end gap-2">
             <a href="{{ route('products.create') }}" class="p-2 w-fit self-end text-white bg-black hover:bg-gray-800 rounded-lg transition duration-300">Add Product</a>
