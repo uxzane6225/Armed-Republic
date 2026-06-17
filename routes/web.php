@@ -5,6 +5,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TypeController;
 use App\Http\Controllers\UserController;
+use App\Models\Product;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
@@ -13,7 +14,11 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    $total_users = User::count();
+    $admin_count = User::where('role', '=', 'admin')->count();
+    $user_count = User::where('role', '=', 'user')->count();
+    $total_products = Product::count();
+    return view('dashboard', compact('total_users', 'admin_count', 'user_count', 'total_products'));
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
