@@ -1,7 +1,7 @@
 <nav class="p-5 w-full flex flex-col justify-between gap-5 text-white bg-black">
     <div>
         <div class="p-2 border border-2 border-t-black border-l-black border-r-black border-b-white">
-            <h1 class="text-3xl text-center font-bold">Control Panel</h1>
+            <h1 class="text-3xl text-center font-bold">Armed Republic</h1>
         </div>
         <div class="py-5 flex flex-col">
             <h2 class="text-sm">Menu</h2>
@@ -15,7 +15,7 @@
                 <a href="{{ route('products.index') }}" class="p-2 hover:text-yellow-300 transition duration-300 border border-2 border-t-black border-l-white border-r-black border-b-black hover:bg-gray-900">
                     Inventory
                 </a>
-                <a href="{{ route('dashboard') }}" class="p-2 hover:text-yellow-300 transition duration-300 border border-2 border-t-black border-l-white border-r-black border-b-black hover:bg-gray-900">
+                <a href="{{ route('sales.index') }}" class="p-2 hover:text-yellow-300 transition duration-300 border border-2 border-t-black border-l-white border-r-black border-b-black hover:bg-gray-900">
                     Sales
                 </a>
                 {{-- <a href="{{ route('dashboard') }}" class="p-2 hover:text-yellow-300 transition duration-300 border border-2 border-t-black border-l-white border-r-black border-b-black hover:bg-gray-900">
@@ -31,10 +31,10 @@
             <p>{{ auth()->user()->email }}</p>
         </div>
         <div class="flex w-full flex-col text-center">
-            <a href="{{ route('dashboard') }}" class="p-2 text-lg hover:text-yellow-300 transition duration-300 hover:bg-gray-900">
+            {{-- <a href="{{ route('dashboard') }}" class="p-2 text-lg hover:text-yellow-300 transition duration-300 hover:bg-gray-900">
                 Main Site
-            </a>
-            <a href="{{ route('dashboard') }}" class="p-2 text-lg hover:text-yellow-300 transition duration-300 hover:bg-gray-900">
+            </a> --}}
+            <a href="{{ route('settings') }}" class="p-2 text-lg hover:text-yellow-300 transition duration-300 hover:bg-gray-900">
                 Settings
             </a>
             <form action="{{ route('logout') }}" method="POST" class="p-2 text-lg hover:text-yellow-300 transition duration-300 hover:bg-gray-900">

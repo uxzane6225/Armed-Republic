@@ -25,11 +25,14 @@ Route::get('/dashboard', function () {
     return view('dashboard', compact('total_users', 'admin_count', 'user_count', 'total_products', 'total_sales'));
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::get('/settings', function () {
+    return view('settings');
+})->middleware(['auth','verified'])->name('settings');
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-    
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy'); 
 });
 
 Route::resource('/users', UserController::class)->middleware(['auth', 'admin']);
