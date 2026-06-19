@@ -32,7 +32,7 @@
         </div>
 
         <div class="p-5 w-1/2 text-center bg-black text-white rounded-xl transition duration-300 hover:scale-105">
-            <h3 class="font-bold text-2xl">0</h3>
+            <h3 class="font-bold text-2xl">{{ $total_sales }}</h3>
             <p>Total Sales</p>
         </div>
     </div>

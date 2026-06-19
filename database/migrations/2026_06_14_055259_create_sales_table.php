@@ -16,7 +16,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('customer_id')->constrained('users')->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('employee_id')->constrained('users')->onUpdate('cascade')->onDelete('cascade');
-            $table->decimal('total_cost',10,2)->default('0.00');
+            $table->decimal('total_cost',10,2)->nullable()->default('0.00');
             $table->timestamps();
         });
 

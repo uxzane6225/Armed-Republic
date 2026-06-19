@@ -34,7 +34,11 @@ class User extends Authenticatable
         return $this->hasMany(User::class);
     }
 
-    public function sales() {
+    public function employee() {
+        return $this->hasMany(User::class);
+    }
+
+    public function customer() {
         return $this->hasMany(User::class);
     }
 }

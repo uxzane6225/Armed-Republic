@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use App\Models\Sale;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class SaleController extends Controller
@@ -22,7 +24,8 @@ class SaleController extends Controller
      */
     public function create()
     {
-        return view('sales.create');
+        $users = User::all();
+        return view('sales.create', compact('users'));
     }
 
     /**
@@ -57,7 +60,8 @@ class SaleController extends Controller
      */
     public function edit(Sale $sale)
     {
-        return view('sales.edit', compact('sale'));
+        $users = User::all();
+        return view('sales.edit', compact('sale','users'));
     }
 
     /**
@@ -89,6 +93,6 @@ class SaleController extends Controller
         }
         
         $sale->delete();
-        return redirect()->route('types.index')->with('success', 'Sale deleted successfully');
+        return redirect()->route('sales.index')->with('success', 'Sale deleted successfully');
     }
 }

@@ -6,14 +6,18 @@ use Illuminate\Database\Eloquent\Model;
 
 class Sale extends Model
 {
-    protected $fillables = [
+    protected $fillable = [
         'customer_id',
         'employee_id',
         'total_cost'
     ];
 
-    public function user() {
-        return $this->belongsTo(User::class, ['customer_id','employee_id']);
+    public function customer() {
+        return $this->belongsTo(User::class);
+    }
+
+    public function employee() {
+        return $this->belongsTo(User::class);
     }
 
     public function sale_details() {
