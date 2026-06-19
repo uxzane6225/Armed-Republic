@@ -3,9 +3,12 @@
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SaleController;
+use App\Http\Controllers\SaleDetailController;
 use App\Http\Controllers\TypeController;
 use App\Http\Controllers\UserController;
 use App\Models\Product;
+use App\Models\Sale;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
@@ -18,7 +21,8 @@ Route::get('/dashboard', function () {
     $admin_count = User::where('role', '=', 'admin')->count();
     $user_count = User::where('role', '=', 'user')->count();
     $total_products = Product::count();
-    return view('dashboard', compact('total_users', 'admin_count', 'user_count', 'total_products'));
+    $total_sales = Sale::count();
+    return view('dashboard', compact('total_users', 'admin_count', 'user_count', 'total_products', 'total_sales'));
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
@@ -32,6 +36,7 @@ Route::resource('/users', UserController::class)->middleware(['auth', 'admin']);
 Route::resource('/types', TypeController::class)->middleware(['auth','admin']);
 Route::resource('/categories', CategoryController::class)->middleware(['auth','admin']);
 Route::resource('/products', ProductController::class)->middleware(['auth','admin']);
-
+Route::resource('/sales', SaleController::class)->middleware(['auth', 'admin']);
+Route::resource('/saleDetails', SaleDetailController::class)->middleware(['auth','admin']);
 
 require __DIR__.'/auth.php';

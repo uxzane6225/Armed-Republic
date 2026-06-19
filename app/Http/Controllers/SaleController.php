@@ -12,7 +12,9 @@ class SaleController extends Controller
      */
     public function index()
     {
-        //
+        $sales = Sale::latest()->paginate(10);
+
+        return view('sales.index', compact('sales'));
     }
 
     /**
@@ -20,7 +22,7 @@ class SaleController extends Controller
      */
     public function create()
     {
-        //
+        return view('sales.create');
     }
 
     /**
@@ -28,7 +30,18 @@ class SaleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'customer_id' => 'required',
+            'employee_id' => 'required',
+        ]);
+
+        Sale::create([
+            'customer_id' => $request->customer_id,
+            'employee_id' => $request->employee_id,
+            'total_cost' => $request->total_cost
+        ]);
+        
+        return redirect()->route('sales.index')->with('success','Sale Added Successfully');
     }
 
     /**
@@ -44,7 +57,7 @@ class SaleController extends Controller
      */
     public function edit(Sale $sale)
     {
-        //
+        return view('sales.edit', compact('sale'));
     }
 
     /**
@@ -52,7 +65,18 @@ class SaleController extends Controller
      */
     public function update(Request $request, Sale $sale)
     {
-        //
+        $request->validate([
+            'customer_id' => 'required',
+            'employee_id' => 'required',
+        ]);
+
+        $sale->update([
+            'customer_id' => $request->customer_id,
+            'employee_id' => $request->employee_id,
+            'total_cost' => $request->total_cost
+        ]);
+
+        return redirect()->route('sales.index')->with('success','Sale Updated Successfully');
     }
 
     /**
@@ -60,6 +84,11 @@ class SaleController extends Controller
      */
     public function destroy(Sale $sale)
     {
-        //
+        if (auth()->user()->role !== 'admin') {
+            return redirect()->back()->with('error', 'You are not allowed to delete a user!');
+        }
+        
+        $sale->delete();
+        return redirect()->route('types.index')->with('success', 'Sale deleted successfully');
     }
 }

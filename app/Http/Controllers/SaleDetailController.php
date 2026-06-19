@@ -12,7 +12,10 @@ class SaleDetailController extends Controller
      */
     public function index()
     {
-        //
+        $saleDetails = SaleDetail::with('product','sale')->get();
+        $saleDetails = SaleDetail::latest()->pagination(10);
+
+        return view('saleDetails.index', compact('saleDetails'));
     }
 
     /**
@@ -20,7 +23,7 @@ class SaleDetailController extends Controller
      */
     public function create()
     {
-        //
+        return view('saleDetails.create');
     }
 
     /**
@@ -28,7 +31,19 @@ class SaleDetailController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'product_id' => 'required',
+            'sales_id' => 'required',
+            'quantity' => 'required'
+        ]);
+
+        SaleDetail::create([
+            'product_id' => $request->product_id,
+            'sales_id' => $request->sales_id,
+            'quantity' => $request->quantity
+        ]);
+
+        return redirect()->route('saleDetails.index')->with('success','Sale Detail Added Successfully!');
     }
 
     /**
@@ -44,7 +59,7 @@ class SaleDetailController extends Controller
      */
     public function edit(SaleDetail $saleDetail)
     {
-        //
+        return view('saleDetails.edit', compact('saleDetail'));
     }
 
     /**
@@ -52,7 +67,17 @@ class SaleDetailController extends Controller
      */
     public function update(Request $request, SaleDetail $saleDetail)
     {
-        //
+        $request->validate([
+            'product_id' => 'required',
+            'sales_id' => 'required',
+            'quantity' => 'required'
+        ]);
+
+        $saleDetail->update([
+            'product_id' => $request->product_id,
+            'sales_id' => $request->sales_id,
+            'quantity' => $request->quantity
+        ]);
     }
 
     /**
@@ -60,6 +85,11 @@ class SaleDetailController extends Controller
      */
     public function destroy(SaleDetail $saleDetail)
     {
-        //
+        if (auth()->user()->role !== 'admin') {
+            return redirect()->back()->with('error', 'You are not allowed to delete a user!');
+        }
+        
+        $saleDetail->delete();
+        return redirect()->route('saleDetails.index')->with('success', 'Sale deleted successfully');
     }
 }
