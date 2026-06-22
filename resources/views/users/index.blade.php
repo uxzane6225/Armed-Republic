@@ -24,7 +24,7 @@
                         <tr class="even:bg-gray-300 border border-b-gray-400">
                             <td class="p-2">{{ $user->id }}</td>
                             <td class="p-2">{{ $user->name }}</td>
-                            <td class="p-2 text-left">{{ $user->email }}</td>
+                            <td class="p-2">{{ $user->email }}</td>
                             {{-- <td>{{ $user->phone }}<td>
                             <td>{{ $user->address }}</td> --}}
                             <td class="p-2">{{ $user->role }}</td>
@@ -48,8 +48,8 @@
             @endif
         </div>
         
-        {{-- <a href="{{ route('users.create') }}" class="p-2 w-fit self-end text-white bg-black hover:bg-gray-800 rounded-lg transition duration-300">
+        <a href="{{ route('users.create') }}" class="p-2 w-fit self-end text-white bg-black hover:bg-gray-800 rounded-lg transition duration-300">
             Create User
-        </a> --}}
+        </a>
     </div>
 </x-app-layout>

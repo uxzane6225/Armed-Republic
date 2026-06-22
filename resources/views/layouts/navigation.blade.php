@@ -34,9 +34,9 @@
             {{-- <a href="{{ route('dashboard') }}" class="p-2 text-lg hover:text-yellow-300 transition duration-300 hover:bg-gray-900">
                 Main Site
             </a> --}}
-            <a href="{{ route('settings') }}" class="p-2 text-lg hover:text-yellow-300 transition duration-300 hover:bg-gray-900">
+            {{-- <a href="{{ route('settings') }}" class="p-2 text-lg hover:text-yellow-300 transition duration-300 hover:bg-gray-900">
                 Settings
-            </a>
+            </a> --}}
             <form action="{{ route('logout') }}" method="POST" class="p-2 text-lg hover:text-yellow-300 transition duration-300 hover:bg-gray-900">
                 @csrf
 

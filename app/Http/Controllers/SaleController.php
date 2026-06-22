@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use App\Models\Sale;
+use App\Models\SaleDetail;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -52,7 +53,11 @@ class SaleController extends Controller
      */
     public function show(Sale $sale)
     {
-        //
+        $saleDetails = SaleDetail::with('product','sale')->latest()->paginate(10);
+        
+        $product = Product::all();
+
+        return view('sales.show', compact('sale', 'saleDetails', 'product'));
     }
 
     /**

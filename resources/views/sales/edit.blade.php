@@ -16,7 +16,8 @@
     <form action="{{ route('sales.update', $sale->id) }}" method="POST" class="p-5 w-full h-full flex flex-col gap-2 text-lg">
         @csrf
         @method('PUT')
-        <input type="text" name="employee_id" value="{{ auth()->user()->id }}" hidden>
+        <input type="text" name="employee_id" value="{{ auth()->user()->id }}">
+        <input type="text" name="employee_id" value="{{ $sale->id }}">
         <div class="flex flex-col gap-1">
             <label for="customer_id">Customer</label>
             <select id="customer_id" name="customer_id" placeholder="Customer ID">

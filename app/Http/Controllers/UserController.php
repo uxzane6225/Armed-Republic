@@ -29,27 +29,34 @@ class UserController extends Controller
      */
     public function store(Request $request, User $user)
     {
-        // $request->validate([
-        //     'name' => 'required',
-        //     'email' => 'required',
-        //     // 'password'=> 'required',
-        //     // 'phone'=> 'required',
-        //     // 'address'=> 'required',
-        //     // 'birthdate' => 'required',
-        // ]);
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'password'=> 'required',
+            'confirm' => 'required'
+            // 'phone'=> 'required',
+            // 'address'=> 'required',
+            // 'birthdate' => 'required',
+        ]);
 
-        // $user->create([
-        //     'name' => $request->name,
-        //     'email' => $request->email,
-        //     // 'password' => $request->password,
-        //     // 'phone' => $request->phone,
-        //     // 'address' => $request->address,
-        //     // 'gender' => $request->gender,
-        //     // 'birthdate' => $request->birthdate,
-        //     'role' => $request->role,
-        // ]);
+        if ($request->password !== $request->confirm) {
+            return redirect()->route('users.create')->with('error','Password did not match!');
+        }
 
-        // return redirect()->route('users.create')->with('success', 'User Created Successfully');
+        
+
+        $user->create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => $request->password,
+            // 'phone' => $request->phone,
+            // 'address' => $request->address,
+            // 'gender' => $request->gender,
+            // 'birthdate' => $request->birthdate,
+            'role' => $request->role,
+        ]);
+
+        return redirect()->route('users.create')->with('success', 'User Created Successfully');
     }
 
     /**
@@ -65,7 +72,8 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        return view('users.edit', compact('user'));
+        $users = User::all();
+        return view('users.edit', compact('user','users'));
     }
 
     /**
@@ -76,7 +84,8 @@ class UserController extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'required',
-            // 'password'=> 'required',
+            //'password'=> 'required',
+            'role' => 'required'
             // 'phone'=> 'required',
             // 'address'=> 'required',
             // 'birthdate' => 'required',
@@ -85,12 +94,12 @@ class UserController extends Controller
         $user->update([
             'name' => $request->name,
             'email' => $request->email,
-            // 'password' => $request->password,
+            //'password' => $request->password,
+            'role' => $request->role,
             // 'phone' => $request->phone,
             // 'address' => $request->address,
             // 'gender' => $request->gender,
             // 'birthdate' => $request->birthdate,
-            'role' => $request->role,
         ]);
 
         return redirect()->route('users.index')->with('success', 'User Updated Successfully!');

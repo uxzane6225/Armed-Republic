@@ -5,7 +5,7 @@
         </h2>
     </x-slot>
     <div class="p-5 w-full h-full flex flex-col gap-5">
-        <div class="h-full w-full bg-gray-200 border border-b-black">
+        <div class="h-full w-full bg-gray-200 border border-b-black overflow-y-scroll">
             <table class="bg-gray-200 w-full">
                 <thead class="text-white bg-black">
                     <tr>
@@ -29,7 +29,7 @@
                             <td class="p-2">{{ $sale->updated_at }}</td>
                             <td class="p-2 flex justify-center gap-2">
                                 <a href="{{ route('sales.edit', $sale->id) }}" class="p-1 text-white bg-blue-600 rounded-lg transition duration-300 hover:bg-blue-500">Edit</a>
-                                <a href="{{ route('saleDetails.index', $sale->id) }}" class="p-1 text-white bg-purple-600 rounded-lg transition duration-300 hover:bg-purple-500">Details</a>
+                                <a href="{{ route('sales.show', $sale->id) }}" class="p-1 text-white bg-purple-600 rounded-lg transition duration-300 hover:bg-purple-500">Details</a>
                                 <form action="{{ route('sales.destroy', $sale->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')

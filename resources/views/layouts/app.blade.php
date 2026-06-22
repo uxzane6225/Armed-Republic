@@ -15,7 +15,7 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="h-screen font-sans antialiased">
-        <div class="h-full grid grid-cols-5 bg-gray-100">
+        <div class="h-full lg:grid grid-cols-5 bg-gray-100">
             @include('layouts.navigation')
 
             <!-- Page Heading -->
@@ -81,8 +81,10 @@
                         <div class="flex items-center gap-5 py-4 px-2 sm:px-4 lg:px-2">
                             {{ $header }}
                             @if(session('success'))
-                            <p class="p-1 w-fit h-fit text-green-600 bg-green-300 rounded-lg">{{ session('success') }}</p>
-                        @endif
+                                <p class="p-1 w-fit h-fit text-green-600 bg-green-300 rounded-lg">{{ session('success') }}</p>
+                            @elseif (session('error'))
+                                <p class="p-1 w-fit h-fit text-red-600 bg-red-300 rounded-lg">{{ session('error') }}</p>
+                            @endif
                         </div>
                         {{-- @if(session('success'))
                             <p class="p-1 w-fit h-fit text-green-600 bg-green-300 rounded-lg">{{ session('success') }}</p>
