@@ -38,11 +38,11 @@ class SaleDetailController extends Controller
         $request->validate([
             'product_id' => 'required',
             'sales_id' => 'required',
-            'quantity' => 'required'
+            'quantity' => 'required|integer|min:1'
         ]);
 
         if ($request->quantity < 1) {
-            return redirect()->route('sales.show')->with('error', 'Product quantity cannot be 0 or under.');
+            return redirect()->route('sales.show', ['sale' => $request->sales_id])->with('error', 'Product quantity cannot be 0 or under.');
         }
 
         $stock = Product::where('id', $request->product_id)->value('stock');
@@ -52,7 +52,7 @@ class SaleDetailController extends Controller
 
 
         if ($stock < $request->quantity) {
-            return redirect()->route('sales.show')->with('error','Product quantity being sold exceeds available stock.');
+            return redirect()->route('sales.show', ['sale' => $request->sales_id])->with('error','Product quantity being sold exceeds available stock.');
         }
 
         SaleDetail::create([

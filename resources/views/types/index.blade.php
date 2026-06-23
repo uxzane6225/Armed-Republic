@@ -20,11 +20,11 @@
                             <td class="p-2">{{ $type->id }}</td>
                             <td class="p-2">{{ $type->type }}</td>
                             <td class="p-2 flex justify-center gap-2">
-                                <a href="{{ route('types.edit', $type->id) }}" class="p-1 text-white bg-blue-600 rounded-lg transition duration-300 hover:bg-blue-500">Edit</a>
+                                <a href="{{ route('types.edit', $type->id) }}" class="py-1 px-5 text-white bg-blue-600 rounded-lg transition duration-300 hover:bg-blue-500">Edit</a>
                                 <form action="{{ route('types.destroy', $type->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
-                                    <button class="p-1 text-white bg-red-600 rounded-lg transition duration-300 hover:bg-red-500">Delete</button>
+                                    <button class="py-1 px-5 text-white bg-red-600 rounded-lg transition duration-300 hover:bg-red-500">Delete</button>
                                 </form>
                             </td>
                         </tr>

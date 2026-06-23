@@ -38,8 +38,8 @@ class ProductController extends Controller
     {
         $request->validate([
             'name' => ['required','unique:products'],
-            'price' => 'required',
-            'stock' => 'required',
+            'price' => 'required|integer|min:1',
+            'stock' => 'required|integer|min:1',
             'type_id' => 'required',
             'category_id' => 'required',
             'employee_id' => 'required'
@@ -111,7 +111,7 @@ class ProductController extends Controller
             return redirect()->back()->with('error', 'You are not allowed to delete a user!');
         }
 
-        $user->delete();
+        $product->delete();
         return redirect()->route('products.index')->with('success', 'User deleted successfully');
     }
 }

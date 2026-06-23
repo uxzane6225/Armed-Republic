@@ -5,6 +5,15 @@
         </h2>
         <p>Sale ID: {{ $sale->id }}</p>
     </x-slot>
+    @if($errors->any())
+        <div class="bg-red-200 text-red-800 p-3 rounded mb-4">
+            <ul class="list-disc pl-5">
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <div class="p-5 w-full h-full flex flex-col gap-5">
         <div class="h-full flex flex-col gap-10 lg:grid grid-cols-2 lg:gap-5">
             <form action="{{ route('saleDetails.store') }}" method="POST" class="flex flex-col gap-2">
@@ -47,11 +56,11 @@
                                     <td class="p-2">{{ $saleDetail->product->name }}</td>
                                     <td class="p-2">{{ $saleDetail->quantity }}</td>
                                     <td class="p-2 flex justify-center gap-2">
-                                        <a href="{{ route('saleDetails.edit', $saleDetail->id) }}" class="p-1 text-white bg-blue-600 rounded-lg transition duration-300 hover:bg-blue-500">Edit</a>
+                                        <a href="{{ route('saleDetails.edit', $saleDetail->id) }}" class="py-1 px-2 text-white bg-blue-600 rounded-lg transition duration-300 hover:bg-blue-500">Edit</a>
                                         <form action="{{ route('saleDetails.destroy', $saleDetail->id) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
-                                            <button class="p-1 text-white bg-red-600 rounded-lg transition duration-300 hover:bg-red-500">Delete</button>
+                                            <button class="py-1 px-2 text-white bg-red-600 rounded-lg transition duration-300 hover:bg-red-500">Delete</button>
                                         </form>
                                     </td>
                                 </tr>

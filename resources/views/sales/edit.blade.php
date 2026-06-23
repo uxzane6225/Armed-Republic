@@ -16,8 +16,8 @@
     <form action="{{ route('sales.update', $sale->id) }}" method="POST" class="p-5 w-full h-full flex flex-col gap-2 text-lg">
         @csrf
         @method('PUT')
-        <input type="text" name="employee_id" value="{{ auth()->user()->id }}">
-        <input type="text" name="employee_id" value="{{ $sale->id }}">
+        <input type="text" name="employee_id" value="{{ auth()->user()->id }}" hidden>
+        <input type="text" name="employee_id" value="{{ $sale->id }}" hidden>
         <div class="flex flex-col gap-1">
             <label for="customer_id">Customer</label>
             <select id="customer_id" name="customer_id" placeholder="Customer ID">
@@ -31,8 +31,8 @@
             <input type="number" id="total_cost" name="total_cost" value="{{ $sale->total_cost }}" placeholder="Total Cost">
         </div>
         <div class="flex gap-2">
-            <button type="submit" class="p-1 text-white bg-black rounded-xl transition duration-300 hover:bg-gray-800">Update</button>
-            <a href="{{ route('sales.index') }}" class="p-1 bg-gray-300 rounded-xl transition duration-300 hover:bg-gray-200">Cancel</a>
+            <button type="submit" class="py-1 px-5 text-white bg-black rounded-xl transition duration-300 hover:bg-gray-800">Update</button>
+            <a href="{{ route('sales.index') }}" class="py-1 px-5 bg-gray-300 rounded-xl transition duration-300 hover:bg-gray-200">Cancel</a>
         </div>
     </form>
 </x-app-layout>

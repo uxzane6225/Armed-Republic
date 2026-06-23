@@ -34,11 +34,11 @@
                             <td class="p-2">{{ $product->updated_at }}</td>
                             <td class="p-2">{{ $product->user->name }}</td>
                             <td class="p-2 flex justify-center gap-2">
-                                <a href="{{ route('products.edit', $product->id) }}" class="p-1 text-white bg-blue-600 rounded-lg transition duration-300 hover:bg-blue-500">Edit</a>
+                                <a href="{{ route('products.edit', $product->id) }}" class="py-1 px-5 text-white bg-blue-600 rounded-lg transition duration-300 hover:bg-blue-500">Edit</a>
                                 <form action="{{ route('products.destroy', $product->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
-                                    <button class="p-1 text-white bg-red-600 rounded-lg transition duration-300 hover:bg-red-500">Delete</button>
+                                    <button class="py-1 px-5 text-white bg-red-600 rounded-lg transition duration-300 hover:bg-red-500">Delete</button>
                                 </form>
                             </td>
                         </tr>

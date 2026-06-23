@@ -4,6 +4,15 @@
             {{ __('Create User') }}
         </h2>
     </x-slot>
+    @if($errors->any())
+        <div class="bg-red-200 text-red-800 p-3 rounded mb-4">
+            <ul class="list-disc pl-5">
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <form action="{{ route('users.store') }}" method="POST" class="p-10 h-fit flex flex-col gap-2">
         @csrf
 

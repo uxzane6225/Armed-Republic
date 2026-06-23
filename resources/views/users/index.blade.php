@@ -30,12 +30,14 @@
                             <td class="p-2">{{ $user->role }}</td>
                             <td class="p-2">{{ $user->created_at }}</td>
                             <td class="p-2 flex justify-center gap-2">
-                                <a href="{{ route('users.edit', $user->id) }}" class="p-1 text-white bg-blue-600 rounded-lg transition duration-300 hover:bg-blue-500">Edit</a>
-                                <form action="{{ route('users.destroy', $user->id) }}" method="POST">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button class="p-1 text-white bg-red-600 rounded-lg transition duration-300 hover:bg-red-500">Delete</button>
-                                </form>
+                                @if($user->id != auth()->user()->id)
+                                    <a href="{{ route('users.edit', $user->id) }}" class="py-1 px-5 text-white bg-blue-600 rounded-lg transition duration-300 hover:bg-blue-500">Edit</a>
+                                    <form action="{{ route('users.destroy', $user->id) }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="py-1 px-5 text-white bg-red-600 rounded-lg transition duration-300 hover:bg-red-500">Delete</button>
+                                    </form>
+                                @endif
                             </td>
                         </tr>
                     @endforeach
@@ -48,7 +50,7 @@
             @endif
         </div>
         
-        <a href="{{ route('users.create') }}" class="p-2 w-fit self-end text-white bg-black hover:bg-gray-800 rounded-lg transition duration-300">
+        <a href="{{ route('users.create') }}" class="py-1 px-5 w-fit self-end text-white bg-black hover:bg-gray-800 rounded-lg transition duration-300">
             Create User
         </a>
     </div>

@@ -20,8 +20,8 @@
             <input type="text" id="category" name="category" placeholder="Type">
         </div>
         <div class="flex gap-2">
-            <button type="submit" class="p-1 text-white bg-black rounded-xl transition duration-300 hover:bg-gray-800">Add</button>
-            <a href="{{ route('categories.index') }}" class="p-1 bg-gray-300 rounded-xl transition duration-300 hover:bg-gray-200">Cancel</a>
+            <button type="submit" class="py-1 px-5 text-white bg-black rounded-xl transition duration-300 hover:bg-gray-800">Add</button>
+            <a href="{{ route('categories.index') }}" class="py-1 px-5 bg-gray-300 rounded-xl transition duration-300 hover:bg-gray-200">Cancel</a>
         </div>
     </form>
 </x-app-layout>

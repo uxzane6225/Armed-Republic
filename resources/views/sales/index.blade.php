@@ -28,12 +28,12 @@
                             <td class="p-2">{{ $sale->created_at }}</td>
                             <td class="p-2">{{ $sale->updated_at }}</td>
                             <td class="p-2 flex justify-center gap-2">
-                                <a href="{{ route('sales.edit', $sale->id) }}" class="p-1 text-white bg-blue-600 rounded-lg transition duration-300 hover:bg-blue-500">Edit</a>
-                                <a href="{{ route('sales.show', $sale->id) }}" class="p-1 text-white bg-purple-600 rounded-lg transition duration-300 hover:bg-purple-500">Details</a>
+                                <a href="{{ route('sales.edit', $sale->id) }}" class="py-1 px-5 text-white bg-blue-600 rounded-lg transition duration-300 hover:bg-blue-500">Edit</a>
+                                <a href="{{ route('sales.show', $sale->id) }}" class="py-1 px-5 text-white bg-purple-600 rounded-lg transition duration-300 hover:bg-purple-500">Details</a>
                                 <form action="{{ route('sales.destroy', $sale->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
-                                    <button class="p-1 text-white bg-red-600 rounded-lg transition duration-300 hover:bg-red-500">Delete</button>
+                                    <button class="py-1 px-5 text-white bg-red-600 rounded-lg transition duration-300 hover:bg-red-500">Delete</button>
                                 </form>
                             </td>
                         </tr>
