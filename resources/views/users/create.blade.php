@@ -19,12 +19,12 @@
         <div class="flex flex-col gap-2">
             <div class="flex flex-col">
                 <label for="name">Full Name</label>
-                <input type="text" id="name" name="name" class="p-1" placeholder="Full Name">
+                <input type="text" id="name" name="name" class="p-1" value="{{ old('name') }}" placeholder="Full Name">
             </div>
 
             <div class="flex flex-col">
                 <label for="email">Email Address</label>
-                <input type="email" id="email" name="email" class="p-1" placeholder="Email">
+                <input type="email" id="email" name="email" value="{{ old('email') }}" class="p-1" placeholder="Email">
             </div>
 
             <div class="flex flex-col">
