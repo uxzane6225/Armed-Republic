@@ -23,11 +23,11 @@ Route::get('/dashboard', function () {
     $total_products = Product::count();
     $total_sales = Sale::count();
     return view('dashboard', compact('total_users', 'admin_count', 'user_count', 'total_products', 'total_sales'));
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->middleware(['auth', 'admin'])->name('dashboard');
 
 Route::get('/settings', function () {
     return view('settings');
-})->middleware(['auth','verified'])->name('settings');
+})->middleware(['auth','admin'])->name('settings');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -41,5 +41,9 @@ Route::resource('/categories', CategoryController::class)->middleware(['auth','a
 Route::resource('/products', ProductController::class)->middleware(['auth','admin']);
 Route::resource('/sales', SaleController::class)->middleware(['auth', 'admin']);
 Route::resource('/saleDetails', SaleDetailController::class)->middleware(['auth','admin']);
+
+Route::get('/pages/home', function() {
+    return view('pages.home');
+})->middleware(['auth', 'verified'])->name('home');
 
 require __DIR__.'/auth.php';
