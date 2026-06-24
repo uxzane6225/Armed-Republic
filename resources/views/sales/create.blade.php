@@ -4,7 +4,7 @@
             {{ __('Add Sale') }}
         </h2>
     </x-slot>
-    @if($errors->any())
+    {{-- @if($errors->any())
         <div class="bg-red-200 text-red-800 p-3 rounded mb-4">
             <ul class="list-disc pl-5">
                 @foreach ($errors->all() as $error)
@@ -12,7 +12,7 @@
                 @endforeach
             </ul>
         </div>
-    @endif
+    @endif --}}
     <form action="{{ route('sales.store') }}" method="POST" class="p-5 w-full h-full flex flex-col gap-2 text-lg">
         @csrf
         <input type="text" name="employee_id" value="{{ auth()->user()->id }}" hidden>
@@ -23,10 +23,16 @@
                     <option value="{{ $user->id }}">{{ $user->name }}</option>
                 @endforeach
             </select>
+             @if($errors->has('customer_id'))
+                <p class="text-red-500">{{ $errors->first('customer_id') }}</p>
+            @endif
         </div>
         <div class="flex flex-col gap-1">
             <label for="total_cost">Total Cost</label>
-            <input type="number" id="total_cost" name="total_cost" value="0.00"placeholder="Total Cost">
+            <input type="number" id="total_cost" name="total_cost" value="0.00" placeholder="Total Cost">
+            @if($errors->has('total_cost'))
+                <p class="text-red-500">{{ $errors->first('total_cost') }}</p>
+            @endif
         </div>
         <div class="flex gap-2">
             <button type="submit" class="p-1 text-white bg-black rounded-xl transition duration-300 hover:bg-gray-800">Add</button>

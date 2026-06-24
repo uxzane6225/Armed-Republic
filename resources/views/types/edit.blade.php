@@ -4,7 +4,7 @@
             {{ __('Edit Type') }}
         </h2>
     </x-slot>
-    @if($errors->any())
+    {{-- @if($errors->any())
         <div class="bg-red-200 text-red-800 p-3 rounded mb-4">
             <ul class="list-disc pl-5">
                 @foreach ($errors->all() as $error)
@@ -12,13 +12,16 @@
                 @endforeach
             </ul>
         </div>
-    @endif
+    @endif --}}
     <form action="{{ route('types.update', $type->id) }}" method="POST" class="p-5 w-full h-full flex flex-col gap-5 text-lg">
         @csrf
         @method('PUT')
         <div class="flex flex-col gap-2">
             <label for="type">Type</label>
             <input type="text" id="type" name="type" value={{ $type->type }} placeholder="Type">
+            @if($errors->has('type'))
+                <p class="text-red-500">{{ $errors->first('type') }}</p>
+            @endif
         </div>
         <div class="flex gap-2">
             <button type="submit" class="py-1 px-5 text-white bg-black rounded-xl transition duration-300 hover:bg-gray-800">Edit</button>

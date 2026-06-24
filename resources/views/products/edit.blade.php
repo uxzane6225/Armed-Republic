@@ -4,7 +4,7 @@
             {{ __('Edit Type') }}
         </h2>
     </x-slot>
-    @if($errors->any())
+    {{-- @if($errors->any())
         <div class="bg-red-200 text-red-800 p-3 rounded mb-4">
             <ul class="list-disc pl-5">
                 @foreach ($errors->all() as $error)
@@ -12,8 +12,8 @@
                 @endforeach
             </ul>
         </div>
-    @endif
-    <form action="{{ route('products.update', $product->id) }}" method="POST" class="p-5 w-full h-full flex flex-col gap-2 text-lg">
+    @endif --}}
+    <form action="{{ route('products.update', $product->id) }}" method="POST" class="p-10 h-fit flex flex-col gap-2">
         @csrf
         @method('PUT')
         
@@ -21,14 +21,23 @@
         <div class="flex flex-col gap-1">
             <label for="name">Product Name</label>
             <input type="text" id="name" name="name" value="{{ $product->name }}" placeholder="Product Name">
+            @if($errors->has('name'))
+                <p class="text-red-500">{{ $errors->first('name') }}</p>
+            @endif
         </div>
         <div class="flex flex-col gap-1">
             <label for="price">Price</label>
-            <input type="number" id="napriceme" name="price" value="{{ $product->price }}" placeholder="Price">
+            <input type="number" id="price" name="price" value="{{ $product->price }}" placeholder="Price">
+            @if($errors->has('price'))
+                <p class="text-red-500">{{ $errors->first('price') }}</p>
+            @endif
         </div>
         <div class="flex flex-col gap-1">
             <label for="stock">Stock</label>
             <input type="number" id="stock" value="{{ $product->stock }}" name="stock" placeholder="Stock">
+            @if($errors->has('stock'))
+                <p class="text-red-500">{{ $errors->first('stock') }}</p>
+            @endif
         </div>
         <div class="flex flex-col gap-1">
             <label for="type">Product Type</label>
@@ -37,6 +46,9 @@
                     <option value="{{ $type->id }}" {{ $product->type_id == $type->id ? 'selected' : '' }}>{{ $type->type }}</option>
                 @endforeach
             </select>
+            @if($errors->has('type_id'))
+                <p class="text-red-500">{{ $errors->first('type_id') }}</p>
+            @endif
         </div>
         <div class="flex flex-col gap-1">
             <label for="category">Product Categories</label>
@@ -45,6 +57,9 @@
                     <option value="{{ $category->id }}" {{ $product->category_id == $category->id ? 'selected' : '' }}>{{ $category->category }}</option>
                 @endforeach
             </select>
+            @if($errors->has('category_id'))
+                <p class="text-red-500">{{ $errors->first('category_id') }}</p>
+            @endif
         </div>
         <div class="flex gap-2">
             <button type="submit" class="py-1 px-5 text-white bg-black rounded-xl transition duration-300 hover:bg-gray-800">Update</button>

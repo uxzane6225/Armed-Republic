@@ -26,7 +26,7 @@
         </div>
         <div class="flex flex-col gap-1">
             <label for="quantity">Quantity</label>
-            <input type="number" id="quantity" name="quantity" value="1"placeholder="Total Cost">
+            <input type="number" id="quantity" name="quantity" value="1" placeholder="Total Cost">
         </div>
         <div class="flex gap-2">
             <button type="submit" class="p-1 text-white bg-black rounded-xl transition duration-300 hover:bg-gray-800">Add</button>
