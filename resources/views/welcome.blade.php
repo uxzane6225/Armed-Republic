@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>{{ config('app.name', 'Laravel') }}</title>
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+        <link rel="icon" href="{{ asset('images/icon.png') }}">
     </head>
     <body class="h-screen">
         <main class="h-screen flex flex-row">
