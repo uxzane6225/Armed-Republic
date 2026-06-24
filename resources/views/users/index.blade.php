@@ -5,7 +5,7 @@
         </h2>
     </x-slot>
     <div class="p-5 w-full h-full flex flex-col gap-5">
-        <div class="h-full w-full bg-gray-200 border border-b-black overflow-y-scroll">
+        <div class="h-full w-full bg-gray-200 border border-b-2 border-b-black overflow-scroll lg:overflow-hidden">
             <table class="bg-gray-200 w-full">
                 <thead class="text-white bg-black">
                     <tr>
@@ -50,7 +50,7 @@
             @endif
         </div>
         
-        <a href="{{ route('users.create') }}" class="py-1 px-5 w-fit self-end text-white bg-black hover:bg-gray-800 rounded-lg transition duration-300">
+        <a href="{{ route('users.create') }}" class="p-2 w-fit self-end text-white bg-black hover:bg-gray-800 rounded-lg transition duration-300">
             Create User
         </a>
     </div>

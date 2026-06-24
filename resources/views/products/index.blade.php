@@ -5,7 +5,7 @@
         </h2>
     </x-slot>
     <div class="p-5 w-full h-full flex flex-col gap-5">
-        <div class="h-full w-full bg-gray-200 border border-b-black overflow-y-scroll">
+        <div class="h-full w-full bg-gray-200 border border-b-2 border-b-black overflow-scroll lg:overflow-hidden">
             <table class="bg-gray-200 w-full">
                 <thead class="text-white bg-black">
                     <tr>

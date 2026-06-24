@@ -31,15 +31,14 @@
             <p>{{ auth()->user()->email }}</p>
         </div>
         <div class="flex w-full flex-col text-center">
-            {{-- <a href="{{ route('dashboard') }}" class="p-2 text-lg hover:text-yellow-300 transition duration-300 hover:bg-gray-900">
+            <a href="{{ route('home') }}" class="p-2 text-lg hover:text-yellow-300 transition duration-300 hover:bg-gray-900">
                 Main Site
-            </a> --}}
+            </a>
             {{-- <a href="{{ route('settings') }}" class="p-2 text-lg hover:text-yellow-300 transition duration-300 hover:bg-gray-900">
                 Settings
             </a> --}}
             <form action="{{ route('logout') }}" method="POST" class="p-2 text-lg hover:text-yellow-300 transition duration-300 hover:bg-gray-900">
                 @csrf
-
                 <button type="submit" class="w-full">
                     Logout
                 </button>

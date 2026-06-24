@@ -42,7 +42,7 @@
                     <a href="{{ route('sales.index', $sale->id) }}" class="py-1 px-5 bg-gray-300 rounded-xl transition duration-300 hover:bg-gray-200">Cancel</a>
                 </div>
             </form>
-            <div class="h-full w-full bg-gray-200 border border-b-black overflow-y-scroll">
+            <div class="h-full w-full bg-gray-200 border border-b-black overflow-y-scroll lg:overflow-hidden">
                 <table class="bg-gray-200 w-full">
                     <thead class="text-white bg-black">
                         <tr>
