@@ -23,7 +23,7 @@ Route::get('/dashboard', function () {
     $total_products = Product::count();
     $total_sales = Sale::count();
     return view('dashboard', compact('total_users', 'admin_count', 'user_count', 'total_products', 'total_sales'));
-})->middleware(['auth', 'admin'])->name('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/settings', function () {
     return view('settings');
@@ -36,11 +36,11 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::resource('/users', UserController::class)->middleware(['auth', 'admin']);
-Route::resource('/types', TypeController::class)->middleware(['auth','admin']);
-Route::resource('/categories', CategoryController::class)->middleware(['auth','admin']);
-Route::resource('/products', ProductController::class)->middleware(['auth','admin']);
-Route::resource('/sales', SaleController::class)->middleware(['auth', 'admin']);
-Route::resource('/saleDetails', SaleDetailController::class)->middleware(['auth','admin']);
+Route::resource('/types', TypeController::class)->middleware(['auth','verified']);
+Route::resource('/categories', CategoryController::class)->middleware(['auth','verified']);
+Route::resource('/products', ProductController::class)->middleware(['auth','verified']);
+Route::resource('/sales', SaleController::class)->middleware(['auth', 'verified']);
+Route::resource('/saleDetails', SaleDetailController::class)->middleware(['auth','verified']);
 
 Route::get('/pages/home', function() {
     return view('pages.home');

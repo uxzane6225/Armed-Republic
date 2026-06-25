@@ -9,9 +9,11 @@
                 <a href="{{ route('dashboard') }}" class="p-2 hover:text-yellow-300 transition duration-300 border border-2 border-t-black border-l-white border-r-black border-b-black hover:bg-gray-900">
                     Dashboard
                 </a>
-                <a href="{{ route('users.index') }}" class="p-2 hover:text-yellow-300 transition duration-300 border border-2 border-t-black border-l-white border-r-black border-b-black hover:bg-gray-900">
-                    User
-                </a>
+                @if(auth()->user()->role === "admin")
+                    <a href="{{ route('users.index') }}" class="p-2 hover:text-yellow-300 transition duration-300 border border-2 border-t-black border-l-white border-r-black border-b-black hover:bg-gray-900">
+                        User
+                    </a>
+                @endif
                 <a href="{{ route('products.index') }}" class="p-2 hover:text-yellow-300 transition duration-300 border border-2 border-t-black border-l-white border-r-black border-b-black hover:bg-gray-900">
                     Inventory
                 </a>
@@ -31,9 +33,9 @@
             <p>{{ auth()->user()->email }}</p>
         </div>
         <div class="flex w-full flex-col text-center">
-            <a href="{{ route('home') }}" class="p-2 text-lg hover:text-yellow-300 transition duration-300 hover:bg-gray-900">
+            {{-- <a href="{{ route('home') }}" class="p-2 text-lg hover:text-yellow-300 transition duration-300 hover:bg-gray-900">
                 Main Site
-            </a>
+            </a> --}}
             {{-- <a href="{{ route('settings') }}" class="p-2 text-lg hover:text-yellow-300 transition duration-300 hover:bg-gray-900">
                 Settings
             </a> --}}

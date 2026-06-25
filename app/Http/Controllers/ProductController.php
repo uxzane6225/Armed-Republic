@@ -108,10 +108,10 @@ class ProductController extends Controller
     public function destroy(Product $product)
     {
         if (auth()->user()->role !== 'admin') {
-            return redirect()->back()->with('error', 'You are not allowed to delete a user!');
+            return redirect()->back()->with('error', 'You are not allowed to delete a Product!');
         }
 
         $product->delete();
-        return redirect()->route('products.index')->with('success', 'User deleted successfully');
+        return redirect()->route('products.index')->with('success', 'Product Deleted Successfully');
     }
 }

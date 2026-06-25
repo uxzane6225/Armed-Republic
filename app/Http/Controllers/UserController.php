@@ -111,10 +111,10 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         if (auth()->user()->role !== 'admin') {
-            return redirect()->back()->with('error', 'You are not allowed to delete a user!');
+            return redirect()->back()->with('error', 'You are not allowed to delete a User!');
         }
 
         $user->delete();
-        return redirect()->route('users.index')->with('success', 'User deleted successfully');
+        return redirect()->route('users.index')->with('success', 'User Deleted Successfully');
     }
 }

@@ -163,6 +163,6 @@ class SaleDetailController extends Controller
         Product::where('id', $saleDetail->product_id)->increment('stock', $saleDetail->quantity);
         
         $saleDetail->delete();
-        return redirect()->route('sales.index')->with('success', 'Sale deleted successfully');
+        return redirect()->route('sales.index')->with('success', 'Sale Detail Deleted Successfully');
     }
 }

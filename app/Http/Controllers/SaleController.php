@@ -94,10 +94,10 @@ class SaleController extends Controller
     public function destroy(Sale $sale)
     {
         if (auth()->user()->role !== 'admin') {
-            return redirect()->back()->with('error', 'You are not allowed to delete a user!');
+            return redirect()->back()->with('error', 'You are not allowed to delete a Sale!');
         }
         
         $sale->delete();
-        return redirect()->route('sales.index')->with('success', 'Sale deleted successfully');
+        return redirect()->route('sales.index')->with('success', 'Sale Deleted Successfully');
     }
 }

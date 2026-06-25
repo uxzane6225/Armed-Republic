@@ -22,6 +22,7 @@ class AdminMiddleware
         if (auth()->user()->role !== 'admin') {
             abort(403, 'Unauthoerized Access');
         }
+        
         return $next($request);
     }
 }

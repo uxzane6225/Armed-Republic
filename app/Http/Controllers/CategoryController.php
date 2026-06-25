@@ -79,9 +79,9 @@ class CategoryController extends Controller
     public function destroy(Category $category)
     {
         if (auth()->user()->role !== 'admin') {
-            return redirect()->back()->with('error', 'You are not allowed to delete a user!');
+            return redirect()->back()->with('error', 'You are not allowed to delete a Product Category!');
         }
         $category->delete();
-        return redirect()->route('categories.index')->with('success', 'Caetegory deleted successfully');
+        return redirect()->route('categories.index')->with('success', 'Caetegory Deleted Successfully');
     }
 }

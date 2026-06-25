@@ -80,9 +80,9 @@ class TypeController extends Controller
     public function destroy(Type $type)
     {
         if (auth()->user()->role !== 'admin') {
-            return redirect()->back()->with('error', 'You are not allowed to delete a user!');
+            return redirect()->back()->with('error', 'You are not allowed to delete a Product Type!');
         }
         $type->delete();
-        return redirect()->route('types.index')->with('success', 'Type deleted successfully');
+        return redirect()->route('types.index')->with('success', 'Product Type Deleted Successfully');
     }
 }
