@@ -37,6 +37,7 @@ class SaleController extends Controller
         $request->validate([
             'customer_id' => 'required',
             'employee_id' => 'required',
+            'total_cost' => 'required|min:0'
         ]);
 
         Sale::create([
@@ -75,13 +76,10 @@ class SaleController extends Controller
     public function update(Request $request, Sale $sale)
     {
         $request->validate([
-            'customer_id' => 'required',
-            'employee_id' => 'required',
+            'total_cost' => 'required|min:0'
         ]);
 
         $sale->update([
-            'customer_id' => $request->customer_id,
-            'employee_id' => $request->employee_id,
             'total_cost' => $request->total_cost
         ]);
 

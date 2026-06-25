@@ -29,9 +29,13 @@ class UserController extends Controller
      */
     public function store(Request $request, User $user)
     {
+        if (auth()->user()->role !== 'admin') {
+            return redirect()->back()->with('error', 'You are not allowed to add a User!');
+        }
+
         $request->validate([
             'name' => 'required',
-            'email' => 'required',
+            'email' => 'required|unique:users',
             'password'=> 'required',
             'confirm' => 'required'
             // 'phone'=> 'required',
@@ -42,8 +46,6 @@ class UserController extends Controller
         if ($request->password !== $request->confirm) {
             return redirect()->route('users.create')->with('error','Password did not match!');
         }
-
-        
 
         $user->create([
             'name' => $request->name,
@@ -81,6 +83,10 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
+        if (auth()->user()->role !== 'admin') {
+            return redirect()->back()->with('error', 'You are not allowed to edit a User!');
+        }
+
         $request->validate([
             'name' => 'required',
             'email' => 'required',

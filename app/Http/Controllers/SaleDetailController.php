@@ -152,9 +152,9 @@ class SaleDetailController extends Controller
      */
     public function destroy(SaleDetail $saleDetail)
     {
-        if (auth()->user()->role !== 'admin') {
-            return redirect()->back()->with('error', 'You are not allowed to delete a user!');
-        }
+        // if (auth()->user()->role !== 'admin') {
+        //     return redirect()->back()->with('error', 'You are not allowed to delete a user!');
+        // }
 
         $price = Product::where('id', $saleDetail->product_id)->value('price');
         $total = $price * $saleDetail->quantity;
