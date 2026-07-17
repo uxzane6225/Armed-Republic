@@ -22,7 +22,7 @@ return new class extends Migration
             //$table->string('address');
             //$table->enum('gender',['male','female']);
             //$table->date('birthdate');
-            $table->enum('role', ['admin','user'])->default('user');
+            $table->enum('role', ['admin','staff','customer'])->default('customer');
             //$table->foreignId('admin_id')->constrained('users')->onUpdate('cascade')->onDelete('cascade');
             $table->rememberToken();
             $table->timestamps();

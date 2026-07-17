@@ -52,7 +52,8 @@
                 <label for="role">Role</label>
                 <select id="role" name="role">
                     <option value="admin">Admin</option>
-                    <option value="user">User</option>
+                    <option value="staff">Staff</option>
+                    <option value="customer">Customer</option>
                 </select>
                 @if($errors->has('role'))
                     <p class="text-red-500">{{ $errors->first('role') }}</p>

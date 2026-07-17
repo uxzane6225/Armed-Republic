@@ -19,15 +19,17 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     $total_users = User::count();
     $admin_count = User::where('role', '=', 'admin')->count();
-    $user_count = User::where('role', '=', 'user')->count();
+    $staff_count = User::where('role', '=', 'staff')->count();
+    $customer_count = User::where('role', '=', 'customer')->count();
     $total_products = Product::count();
     $total_sales = Sale::count();
-    return view('dashboard', compact('total_users', 'admin_count', 'user_count', 'total_products', 'total_sales'));
-})->middleware(['auth', 'verified'])->name('dashboard');
+
+    return view('dashboard', compact('total_users', 'admin_count', 'staff_count', 'customer_count', 'total_products', 'total_sales'));
+})->middleware(['auth', 'admin'])->name('dashboard');
 
 Route::get('/settings', function () {
     return view('settings');
-})->middleware(['auth','admin'])->name('settings');
+})->middleware(['auth', 'verified'])->name('settings');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -42,8 +44,15 @@ Route::resource('/products', ProductController::class)->middleware(['auth','veri
 Route::resource('/sales', SaleController::class)->middleware(['auth', 'verified']);
 Route::resource('/saleDetails', SaleDetailController::class)->middleware(['auth','verified']);
 
-Route::get('/pages/home', function() {
-    return view('pages.home');
-})->middleware(['auth', 'verified'])->name('home');
+
+Route::middleware(['auth','verified'])->group(function() {
+    Route::get('/pages/home', function() {
+        return view('pages.home');
+    })->name('home');
+    
+    Route::get('pages/store', function () {
+        return view('pages.store');
+    })->name('store');
+});
 
 require __DIR__.'/auth.php';

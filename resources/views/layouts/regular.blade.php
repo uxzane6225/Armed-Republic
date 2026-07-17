@@ -13,5 +13,6 @@
     <body class="h-screen font-sans antialiased">
         @include('layouts.navbar')
         {{ $slot }}
+        @include('layouts.footer')
     </body>
 </html>

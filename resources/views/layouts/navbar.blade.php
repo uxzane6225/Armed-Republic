@@ -3,7 +3,7 @@
         <h1 class="font-bold text-xl"><a href="{{ route('home') }}">Armed Republic</a></h1>
         <ul class="flex gap-5">
             <li><a href="{{ route('home') }}" class="transition duration-300 hover:text-yellow-300">Home</a></li>
-            <li><a href="{{ route('home') }}" class="transition duration-300 hover:text-yellow-300">Store</a></li>
+            <li><a href="{{ route('store') }}" class="transition duration-300 hover:text-yellow-300">Store</a></li>
             <li><a href="{{ route('home') }}" class="transition duration-300 hover:text-yellow-300">Articles</a></li>
             <li><a href="{{ route('home') }}" class="transition duration-300 hover:text-yellow-300">Forums</a></li>
             <li><a href="{{ route('home') }}" class="transition duration-300 hover:text-yellow-300">Contact</a></li>

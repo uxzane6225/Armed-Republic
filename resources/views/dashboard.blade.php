@@ -17,8 +17,13 @@
         </div>
 
         <div class="p-5 w-1/2 text-center bg-black text-white rounded-xl transition duration-300 hover:scale-105">
-            <h3 class="font-bold text-2xl">{{ $user_count }}</h3>
-            <p>Total Users</p>
+            <h3 class="font-bold text-2xl">{{ $staff_count }}</h3>
+            <p>Total Staff</p>
+        </div>
+
+        <div class="p-5 w-1/2 text-center bg-black text-white rounded-xl transition duration-300 hover:scale-105">
+            <h3 class="font-bold text-2xl">{{ $customer_count }}</h3>
+            <p>Total Customers</p>
         </div>
 
         {{-- <div class="p-5 w-1/2 text-center bg-black text-white rounded-xl transition duration-300 hover:scale-105">
