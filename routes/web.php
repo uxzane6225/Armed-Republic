@@ -49,10 +49,30 @@ Route::middleware(['auth','verified'])->group(function() {
     Route::get('/pages/home', function() {
         return view('pages.home');
     })->name('home');
-    
+
     Route::get('pages/store', function () {
         return view('pages.store');
     })->name('store');
+
+    Route::get('pages/articles', function () {
+        return view('pages.articles');
+    })->name('articles');
+
+    Route::get('pages/forums', function () {
+        return view('pages.forums');
+    })->name('forums');
+
+    Route::get('pages/contact', function () {
+        return view('pages.contact');
+    })->name('contact');
+
+    Route::get('pages/about', function () {
+        return view('pages.about');
+    })->name('about');
+
+    Route::get('pages/profile', function () {
+        return view('pages.profile');
+    })->name('profile');
 });
 
 require __DIR__.'/auth.php';
