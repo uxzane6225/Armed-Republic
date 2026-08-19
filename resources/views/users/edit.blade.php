@@ -35,7 +35,8 @@
                 <label for="role">Role <span>(Don't forget to re-assign the right role again)</span></label>
                 <select id="role" name="role">
                     <option value="admin">Admin</option>
-                    <option value="user">User</option>
+                    <option value="customer">Customer</option>
+                    <option value="staff">Staff</option>
                     {{-- @foreach ($users as $usr)
                         <option value="{{ $usr->role }}" {{ $user->role == $usr->role ? 'selected' : '' }}>{{ $usr->role }}</option>
                     @endforeach --}}
