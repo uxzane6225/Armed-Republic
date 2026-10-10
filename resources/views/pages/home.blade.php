@@ -1,5 +1,5 @@
 <x-regular-layout>
-    <header class="p-40 h-4/6 flex flex-col justify-center text-white bg-black bg-[url(../../../../storage/app/public/images/header.jpg)] bg-no-repeat bg-cover bg-center shadow-xl">
+    <header style="background-image: url('{{ asset('images/header.jpg') }}')" class="p-40 h-4/6 flex flex-col justify-center text-white bg-black bg-no-repeat bg-cover bg-center shadow-xl">
         <div>
             <h2 class="text-5xl font-bold">Rattle Power</h2>
             <p class="mb-5">Feel the liberty and smell the freedom</p>
