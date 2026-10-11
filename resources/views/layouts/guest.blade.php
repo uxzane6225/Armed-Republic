@@ -13,7 +13,7 @@
             <div class="h-full w-full flex flex-col justify-evenly items-center bg-white">
                 {{ $slot }}
             </div>
-            <div style="background-image: url('https://images.unsplash.com/photo-1619760563678-02e23d15f69f?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D')" class="h-full w-full hidden col-span-2 lg:flex flex-col justify-center items-center text-center text-white bg-black bg-no-repeat bg-cover bg-center">
+            <div class="h-full w-full hidden col-span-2 lg:flex flex-col justify-center items-center text-center text-white bg-black bg-[url('https://images.unsplash.com/photo-1619760563678-02e23d15f69f?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D')] bg-no-repeat bg-cover bg-center">
                 <h1 class="text-4xl font-bold border-b-4">Armed Republic</h1>
                 <p>The right to protect and defend!</p>
             </div> 
