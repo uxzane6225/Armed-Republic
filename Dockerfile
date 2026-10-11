@@ -5,26 +5,15 @@ RUN npm ci
 COPY . .
 RUN npm run build
 
-FROM richarvey/nginx-php-fpm:latest
+FROM serversideup/php:8.4-fpm-nginx
 
-COPY . /var/www/html
-COPY --from=assets /app/public/build /var/www/html/public/build
+ENV PHP_OPCACHE_ENABLE=1
+ENV AUTORUN_ENABLED=true
+ENV APP_ENV=production
+ENV APP_DEBUG=false
+ENV LOG_CHANNEL=stderr
 
-RUN composer install --no-dev --optimize-autoloader --no-interaction --working-dir=/var/www/html
+COPY --chown=www-data:www-data . /var/www/html
+COPY --from=assets --chown=www-data:www-data /app/public/build /var/www/html/public/build
 
-# Image config
-ENV SKIP_COMPOSER 1
-ENV WEBROOT /var/www/html/public
-ENV PHP_ERRORS_STDERR 1
-ENV RUN_SCRIPTS 1
-ENV REAL_IP_HEADER 1
-
-# Laravel config
-ENV APP_ENV production
-ENV APP_DEBUG false
-ENV LOG_CHANNEL stderr
-
-# Allow composer to run as root
-ENV COMPOSER_ALLOW_SUPERUSER 1
-
-CMD ["/start.sh"]
+RUN composer install --no-dev --optimize-autoloader --no-interaction
