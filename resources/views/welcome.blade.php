@@ -21,7 +21,7 @@
                     <a href="{{ route('register') }}" class="py-2 w-100 border-2 border-black rounded-xl transition duration-400 hover:bg-black hover:text-white">Register</a>
                 </div>
             </div>
-            <div style="background-image: url('{{ asset('images/bg2.jpg') }}')" class="h-screen w-full flex-col justify-center items-center text-center text-white bg-black bg-no-repeat bg-cover bg-bottom hidden lg:flex">
+            <div style="background-image: url('https://images.unsplash.com/photo-1619760563678-02e23d15f69f?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D')" class="h-screen w-full flex-col justify-center items-center text-center text-white bg-black bg-no-repeat bg-cover bg-center hidden lg:flex">
                 <h1 class="text-5xl text-shadow-lg/20 font-bold border-white border-b-4">Armed Republic</h1>
                 <p class="text-lg text-shadow-lg/20">The right to protect and defend!</p>
             </div> 
