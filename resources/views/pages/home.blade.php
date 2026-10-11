@@ -1,5 +1,5 @@
 <x-regular-layout>
-    <header class="p-40 h-4/6 flex flex-col justify-center text-white bg-black bg-[url(../../../../storage/app/public/images/header.jpg)] bg-no-repeat bg-cover bg-center shadow-xl">
+    <header class="p-40 h-4/6 flex flex-col justify-center text-white bg-black bg-[url(https://images.unsplash.com/photo-1620396159302-e9334733d178?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D)] bg-no-repeat bg-cover bg-center shadow-xl">
         <div>
             <h2 class="text-5xl font-bold">Rattle Power</h2>
             <p class="mb-5">Feel the liberty and smell the freedom</p>
